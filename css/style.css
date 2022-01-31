@@ -57,20 +57,23 @@ h3 {
 header {
   min-width: 400px;
   height: 100vh;
-  padding: var(--padding);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   border: 5px solid black;
   position: relative;
+  overflow: hidden;
 }
 
 .nav-bar {
   height: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8rem;
+  gap: 4rem;
+
   transition: transform 0.2s;
   transform-origin: top;
 }
@@ -85,7 +88,6 @@ header {
 
 .nav__menu-toggle {
   width: fit-content;
-  height: fit-content;
   border: 0;
   background: transparent;
 
@@ -102,9 +104,12 @@ header {
 }
 
 .nav__link {
+  width: max(15rem, 15vh);
   height: 4rem;
+
   position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -121,8 +126,8 @@ header {
 .link--style::before {
   content: "";
   display: block;
-  height: 3px;
-  width: 14rem;
+  height: 2px;
+  width: 80%;
   background-color: var(--headings-color);
   transform: scaleX(0);
   transform-origin: left;
@@ -136,7 +141,7 @@ header {
   content: "";
   display: block;
   height: 2px;
-  width: 14rem;
+  width: 80%;
   background-color: var(--headings-color);
   transform: scaleX(0);
   transform-origin: right;
@@ -159,16 +164,15 @@ header {
   transform: scale(1);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   header {
     height: fit-content;
-    --padding: 3rem;
+    padding-right: 4rem;
   }
 
   .nav-bar {
-    align-self: flex-end;
-    width: 45%;
     flex-direction: row;
+    align-self: flex-end;
     justify-content: flex-end;
   }
 
@@ -177,12 +181,8 @@ header {
   }
 
   .nav__link {
-    flex: 1;
+    /* width: min(10vw, 20rem); */
     justify-content: center;
-  }
-
-  .link--style::before {
-    height: 2px;
   }
 }
 
