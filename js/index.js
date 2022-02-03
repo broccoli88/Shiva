@@ -1,21 +1,17 @@
-const menuButtons = document.querySelectorAll('.nav__menu-toggle')
-const navBarUncovered = document.querySelector('.nav-bar')
 const buttonToggle = document.querySelector('.far')
+const navToggle = document.querySelector('.nav-toggle');
+const header = document.querySelector('header')
 
+buttonToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('nav-toggle')
+    header.classList.toggle('scroll')
 
-
-menuButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const dataUncovered = navBarUncovered.getAttribute('data-uncovered')
-        if (dataUncovered === 'true') {
-            navBarUncovered.setAttribute('data-uncovered', false)
-            buttonToggle.classList.remove('fa-caret-square-down')
-            buttonToggle.classList.add('fa-minus-square')
-        } else {
-            navBarUncovered.setAttribute('data-uncovered', true)
-            buttonToggle.classList.remove('fa-minus-square')
-            buttonToggle.classList.add('fa-caret-square-down')
-        }
-    }
-    )
 })
+
+
+
+
+
+
+
+// #################### GALLERY Z-INDEX #########################

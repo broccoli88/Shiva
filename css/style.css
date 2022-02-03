@@ -55,7 +55,7 @@ h3 {
 /* ############################# NAV-BAR ################################### */
 
 header {
-  min-width: 400px;
+  min-width: 300px;
   height: 100vh;
   padding: 2rem;
   display: flex;
@@ -63,6 +63,21 @@ header {
   border: 5px solid black;
   position: relative;
   overflow: hidden;
+  transition: all 0.4s ease-in 0.1s;
+}
+
+.scroll {
+  height: 12vh;
+}
+
+.logo {
+  width: fit-content;
+  height: fit-contents;
+}
+
+.logo > img {
+  width: 64px;
+  height: 64px;
 }
 
 .nav-bar {
@@ -78,12 +93,7 @@ header {
   transform-origin: top;
 }
 
-.nav-bar[data-uncovered="true"] {
-  transform: scaleY(1);
-  opacity: 1;
-}
-
-.nav-bar[data-uncovered="false"] {
+.nav-toggle {
   transform: scaleY(0);
   opacity: 0;
 }
@@ -99,7 +109,7 @@ header {
   z-index: 9999;
 }
 
-.nav__menu-toggle > * {
+.far {
   font-size: 35px;
   cursor: pointer;
   display: block;
@@ -168,8 +178,8 @@ header {
 
 @media (min-width: 768px) {
   header {
-    height: fit-content;
     padding-right: 4rem;
+    height: 16vh;
   }
 
   .nav-bar {
@@ -178,7 +188,20 @@ header {
     justify-content: flex-end;
   }
 
-  .nav__menu-toggle > * {
+  .scroll {
+    height: 16vh;
+  }
+
+  .tab__description {
+    padding: 1.5rem;
+  }
+
+  .nav-toggle {
+    transform: none;
+    opacity: 1;
+  }
+
+  .nav__menu-toggle {
     display: none;
   }
 
@@ -194,8 +217,17 @@ main {
   overflow: hidden;
 }
 
-.gallery {
+.card {
+  max-width: 100vw;
   height: 100%;
+
+  position: relative;
+}
+
+.gallery {
+  max-width: 100vw;
+  height: 100%;
+  overflow: hidden;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -262,19 +294,24 @@ drugim kliknieciem ma znikac */
 }
 
 @media (min-width: 768px) {
-  .gallery {
-    background-color: black;
+  .card {
+    max-width: 100vw;
+    height: 100vh;
+
+    position: relative;
   }
 
   .tab--style-position-left {
-    height: 70vh;
+    height: 80vh;
     display: grid;
     grid-template-columns: 84.5vw 14.5vw;
     grid-template-areas:
       "title title"
       "img description";
     clip-path: polygon(0 0, 59% 0, 39% 100%, 0% 100%);
-    position: relative;
+    position: absolute;
+    top: 10vh;
+    left: 0;
   }
 
   .tab--style-position-left:hover {
@@ -284,7 +321,7 @@ drugim kliknieciem ma znikac */
   }
 
   .tab--style-position-right {
-    height: 70vh;
+    height: 80vh;
 
     display: grid;
     grid-template-columns: 14.5vw 84.5vw;
@@ -295,7 +332,7 @@ drugim kliknieciem ma znikac */
     clip-path: polygon(59% 0, 100% 0, 100% 100%, 39% 100%);
 
     position: absolute;
-    top: 0;
+    top: 10vh;
     right: 0;
   }
 
@@ -319,6 +356,7 @@ drugim kliknieciem ma znikac */
   .tab__cover {
     width: 100%;
     background-color: hsla(0, 0%, 100%, 1);
+    padding: 1.2rem;
     position: inherit;
 
     grid-area: description;
@@ -333,6 +371,18 @@ drugim kliknieciem ma znikac */
   .tab__image {
     grid-area: img;
   }
+}
+
+/* ############################# FOOTER ############################3 */
+
+footer {
+  width: 100%;
+  height: 10vh;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ###################         UWAGI !!!            ############## */
