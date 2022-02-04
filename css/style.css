@@ -21,13 +21,14 @@ html {
 
 body {
   max-width: 100vw;
-  min-height: 100vh;
+  min-height: 100%;
   font-family: "Crimson Pro", serif;
   font-size: var(--font-size);
   color: var(--font-color);
   line-height: 1.2;
   letter-spacing: 1.5px;
   word-spacing: 2px;
+  overflow-inline: hidden;
 }
 
 /* TYPOGRAPHY */
@@ -60,9 +61,8 @@ header {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  border: 5px solid black;
+  border-bottom: 5px solid black;
   position: relative;
-  overflow: hidden;
   transition: all 0.4s ease-in 0.1s;
 }
 
@@ -117,7 +117,7 @@ header {
 
 .nav__link {
   width: max(15rem, 15vh);
-  height: 4rem;
+  height: 4vh;
 
   position: relative;
   display: flex;
@@ -178,14 +178,22 @@ header {
 
 @media (min-width: 768px) {
   header {
+    width: 100%;
     padding-right: 4rem;
     height: 16vh;
+    background-color: white;
+
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    z-index: 9999;
   }
 
   .nav-bar {
     flex-direction: row;
     align-self: flex-end;
-    justify-content: flex-end;
   }
 
   .scroll {
@@ -213,8 +221,8 @@ header {
 /* ############################ MAIN GALLERY ############################# */
 
 main {
+  margin-top: 2rem;
   height: 100%;
-  overflow: hidden;
 }
 
 .card {
@@ -227,7 +235,6 @@ main {
 .gallery {
   max-width: 100vw;
   height: 100%;
-  overflow: hidden;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -254,9 +261,9 @@ main {
   display: none;
 }
 
-/* .gallery__tab:hover > .tab__cover {
+.gallery__tab:hover > .tab__cover {
   display: grid;
-} */
+}
 
 /* dodac pojawienie sie na stale js-em, 
 drugim kliknieciem ma znikac */
@@ -294,23 +301,28 @@ drugim kliknieciem ma znikac */
 }
 
 @media (min-width: 768px) {
+  main {
+    margin-top: 20rem;
+  }
+
   .card {
     max-width: 100vw;
-    height: 100vh;
-
+    height: 80vh;
+    background-color: black;
     position: relative;
+    margin-block: 10vh;
   }
 
   .tab--style-position-left {
     height: 80vh;
     display: grid;
-    grid-template-columns: 84.5vw 14.5vw;
+    grid-template-columns: 84vw 14vw;
     grid-template-areas:
       "title title"
       "img description";
     clip-path: polygon(0 0, 59% 0, 39% 100%, 0% 100%);
     position: absolute;
-    top: 10vh;
+    top: 0;
     left: 0;
   }
 
@@ -324,7 +336,7 @@ drugim kliknieciem ma znikac */
     height: 80vh;
 
     display: grid;
-    grid-template-columns: 14.5vw 84.5vw;
+    grid-template-columns: 14vw 84vw;
     grid-template-areas:
       "description img"
       "title title";
@@ -332,7 +344,7 @@ drugim kliknieciem ma znikac */
     clip-path: polygon(59% 0, 100% 0, 100% 100%, 39% 100%);
 
     position: absolute;
-    top: 10vh;
+    top: 0;
     right: 0;
   }
 
@@ -349,8 +361,13 @@ drugim kliknieciem ma znikac */
     grid-area: title;
   }
 
+  .title-left {
+    border-bottom: 5px solid black;
+  }
+
   .title-right {
     text-align: end;
+    border-top: 5px solid black;
   }
 
   .tab__cover {
@@ -379,12 +396,114 @@ footer {
   width: 100%;
   height: 10vh;
   background-color: black;
-  color: white;
+  color: teal;
+  border-top: 5px solid teal;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* ###################         UWAGI !!!            ############## */
+/* ###################         INTRODUCTION            ############## */
 
+.introduction {
+  width: 100%;
+  height: 100%;
+  border: 5px solid black;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.introduction > img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.introduction > a {
+  text-decoration: none;
+  color: var(--font-color);
+  position: absolute;
+  bottom: 10px;
+  right: 40px;
+}
+
+.introduction > span {
+  position: absolute;
+  bottom: 12px;
+  right: 20px;
+}
+
+.testimonial {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial > p {
+  line-height: 1.5;
+  font-size: 1.3rem;
+  padding: 3rem 2rem 8rem;
+  text-align: center;
+}
+
+.testimonial > h2 {
+  margin-top: 2rem;
+  font-size: 2.5rem;
+}
+
+.testimonial > h3 {
+  font-size: 2rem;
+  margin-top: 0.3rem;
+}
+
+@media (min-width: 768px) {
+  .introduction {
+    margin: auto;
+    width: 70vw;
+    height: 60vh;
+
+    display: flex;
+    flex-direction: row;
+  }
+
+  .introduction > img {
+    height: 100%;
+
+    flex: 2;
+
+    object-position: center;
+  }
+
+  .introduction > span {
+    right: 10px;
+  }
+
+  .testimonial {
+    flex: 1;
+    padding: 2rem;
+  }
+
+  .testimonial > p {
+    line-height: 1.5;
+    margin-block: auto;
+    font-size: 1.5rem;
+  }
+
+  .testimonial > h2 {
+    font-size: 4rem;
+  }
+
+  .testimonial > h3 {
+    margin-top: 2rem;
+    font-size: 2.2rem;
+  }
+}
+
+/* ###################         UWAGI !!!            ############## */
 /* dokonczyc grid, zastanowaic sie jak bedzie wygladal w wersji desktop */

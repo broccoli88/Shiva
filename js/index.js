@@ -12,6 +12,4 @@ buttonToggle.addEventListener('click', () => {
 
 
 
-
-
 // #################### GALLERY Z-INDEX #########################
