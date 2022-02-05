@@ -29,7 +29,6 @@ body {
   letter-spacing: 1.5px;
   word-spacing: 2px;
   overflow-inline: hidden;
-  position: relative;
 }
 
 /* TYPOGRAPHY */
@@ -47,7 +46,7 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(3.157rem, 2.8vw, 3.4rem);
+  font-size: clamp(3.157rem, 2.8vw, 3.998rem);
 }
 
 h3 {
@@ -75,12 +74,12 @@ header {
   width: 64px;
   height: 64px;
   position: absolute;
-  top: 20px;
+  top: 50%;
 }
 
 .logo > img {
   width: 64px;
-  height: auto;
+  height: 64px;
 }
 
 .nav-bar {
@@ -92,28 +91,8 @@ header {
   justify-content: center;
   gap: 4rem;
 
-  position: relative;
-
   transition: all 0.4s ease-in 0.1s;
   transform-origin: top;
-}
-
-#instagram,
-#facebook {
-  width: 3rem;
-  height: auto;
-
-  position: absolute;
-  bottom: 23vh;
-  z-index: 10;
-}
-
-#instagram {
-  left: 40%;
-}
-
-#facebook {
-  right: 40%;
 }
 
 .nav-toggle {
@@ -202,7 +181,7 @@ header {
 @media (min-width: 768px) {
   header {
     width: 100%;
-    padding-right: 15rem;
+    padding-right: 4rem;
     height: 10vh;
     background-color: white;
 
@@ -217,24 +196,6 @@ header {
   .nav-bar {
     flex-direction: row;
     margin-left: auto;
-  }
-
-  #instagram,
-  #facebook {
-    width: 3rem;
-    height: auto;
-    display: inline-flex;
-
-    position: absolute;
-    bottom: 9px;
-  }
-
-  #instagram {
-    left: 80rem;
-  }
-
-  #facebook {
-    right: -8rem;
   }
 
   .scroll {
@@ -334,15 +295,10 @@ main {
 }
 
 @media (min-width: 768px) {
-  main {
-    margin-top: 18rem;
-  }
-
   .gallery {
     width: 90vw;
     margin: auto;
-    margin-top: 8rem;
-    gap: 10vh;
+    border: 3px solid black;
   }
 
   .gallery__tab {
@@ -358,22 +314,22 @@ main {
   .tab__image {
     height: 100%;
     grid-area: img;
-    border-bottom: 2px solid black;
+    border-bottom: 3px solid black;
   }
 
   .tab__title {
-    height: 100%;
-    border-bottom: 2px solid black;
+    display: block;
     grid-area: title;
-    display: flex;
-    align-items: center;
+    height: 100%;
+    border-bottom: 3px solid black;
+    font-size: 4rem;
   }
 
   .tab__cover {
     width: 100%;
     background-color: hsla(0, 0%, 100%, 1);
     padding: 1.2rem;
-    border-bottom: 2px solid black;
+    border-bottom: 3px solid black;
 
     grid-area: description;
     display: grid;
@@ -497,15 +453,4 @@ footer {
     margin-top: 2rem;
     font-size: 2.2rem;
   }
-}
-
-/* ########################## BACK TO TOP ############################### */
-
-#to-top-btn {
-  font-size: 4rem;
-  color: teal;
-
-  position: absolute;
-  bottom: 11vh;
-  right: 20px;
 }

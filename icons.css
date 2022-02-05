@@ -1,0 +1,9 @@
+img {
+  width: 64px;
+}
+
+span {
+  width: fit-content;
+  height: fit-content;
+  background: transparent;
+}
