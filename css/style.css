@@ -17,6 +17,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -63,8 +64,8 @@ header {
   display: flex;
   flex-direction: column;
   border-bottom: 3px solid black;
-  position: relative;
   transition: all 0.4s ease-in 0.1s;
+  position: relative;
 }
 
 .scroll {
@@ -209,7 +210,7 @@ header {
     flex-direction: row;
     justify-content: space-between;
 
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     z-index: 9999;
   }
@@ -502,10 +503,20 @@ footer {
 /* ########################## BACK TO TOP ############################### */
 
 #to-top-btn {
-  font-size: 4rem;
-  color: teal;
+  width: 33px;
+  height: 30px;
+  border: 2px solid black;
 
-  position: absolute;
+  font-size: 4rem;
+  color: white;
+  background-color: black;
+
+  position: fixed;
   bottom: 11vh;
-  right: 20px;
+  right: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
